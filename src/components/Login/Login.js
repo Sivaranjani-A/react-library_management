@@ -56,7 +56,7 @@ function Login() {
                                 </button>
                                 <button onClick={() => {
                                     logindata.setLibrarianVisible(false);
-                                    navigate("/portal/dashboard")
+                                    navigate("/portal/book")
                                 }} type="button" className="btn   mt-2"
                                     style={{ paddingRight: "2.5rem" }}>
                                     <div className="card" style={{ width: "8rem", height: "8rem" }}>
