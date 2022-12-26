@@ -1,6 +1,4 @@
-import React, { useContext } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import UserContext from '../Context/UserContext';
 import LoginContext from '../Context/LoginContext';
@@ -8,16 +6,17 @@ import LoginContext from '../Context/LoginContext';
 function Navbar() {
     const userdata = useContext(UserContext);
     const logindata = useContext(LoginContext);
+    const [show, setShow] = useState(false);
 
 
     return (
 
         <nav className="navbar navbar-expand-lg navbar-warning p-3 bg-light">
-            <a className="navbar-brand" href="#">Library</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <Link className="navbar-brand" to="#">Library</Link>
+            <button onClick={() => { setShow(!show) }} className={show ? "navbar-toggler collapsed" : "navbar-toggler"} type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded={show ? "true" : "false"} aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div className={show ? "collapse navbar-collapse show" : "collapse navbar-collapse"} id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                     <Link className="nav-item nav-link active" to="/portal/dashboard">Dashboard</Link>
 
